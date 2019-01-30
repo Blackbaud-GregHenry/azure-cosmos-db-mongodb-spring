@@ -291,3 +291,8 @@ __pycache__/
 .project
 .settings
 .classpath
+
+#Intellij files
+*.iml
+*.ipr
+*.iws

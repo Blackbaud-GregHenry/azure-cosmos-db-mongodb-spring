@@ -14,8 +14,9 @@
  * limitations under the License.
  */
 
-package azure.cosmosdb.for.mongodb.api.spring;
+package azure.cosmosdb.mongodb.spring;
 
+import azure.cosmosdb.mongodb.spring.aggregation.Status;
 import org.springframework.data.annotation.Id;
 
 public class Customer {
@@ -25,19 +26,27 @@ public class Customer {
 
 	private String firstName;
 	private String lastName;
+	private String environmentId;
+	private Status status;
 
 	public Customer() {
 	}
 
 	public Customer(String firstName, String lastName) {
+		this(firstName, lastName, null, null);
+	}
+
+	public Customer(String firstName, String lastName, String environmentId, Status status) {
 		this.firstName = firstName;
 		this.lastName = lastName;
+		this.environmentId = environmentId;
+		this.status = status;
 	}
 
 	@Override
 	public String toString() {
-		return String.format("Customer[id=%s, firstName='%s', lastName='%s']", id,
-				firstName, lastName);
+		return String.format("Customer[id=%s, firstName='%s', lastName='%s', environmentId='%s', status='%s']", id,
+				firstName, lastName, environmentId, status);
 	}
 
 }
